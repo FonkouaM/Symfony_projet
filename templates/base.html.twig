@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Julia Food{% endblock %}</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{asset('JuliaFood/fontawesome-free-5.15.3-web/css/all.css')}}">
+        <link rel="stylesheet" href="{{asset('JuliaFood/css/style.css')}}">
+        <link rel="icon" href="{{asset('JuliaFood/Logo/icon32x32.png')}}" type="icon/png">
+        {% block stylesheets %}{% endblock %}
+         <script src="{{asset('JuliaFood/fontawesome-free-5.15.3-web/js/all.js')}}"></script>
+          <script src="{{asset('JuliaFood/js/script.js')}}"></script>
+        {% block javascripts %}{% endblock %}
+    </head>
+    <body>
+    <header>
+        <nav>
+            <img class="logo" src="{{asset('JuliaFood/Logo/Dark background/logo128x128dark.png')}}" alt="">
+
+            <ul class="navbar">
+                <li class="list"><a href="{{path('home')}}" class="nav-link {{is_active('home')}}">Accueil</a></li>
+                <li class="list"><a href="{{path('nosmenus')}}" class="nav-link {{is_active('nosmenus')}}">Nos menus</a></li>
+                <li class="list"><a href="{{path('gallerie')}}" class="nav-link {{is_active('gallerie')}}">Notre gallerie</a></li>
+                <li class="list"><a href="{{path('contacts')}}" class="nav-link {{is_active('contacts')}}">Contacts</a></li>
+            </ul>
+            <div class="responsive">
+                <span class="nav"></span>
+            </div>
+        </nav>
+       {% block banniere %}{% endblock %}
+    </header>
+        {% block body %}{% endblock %}
+    <footer>
+        <div class="footer">
+            <div class="footer-gauche">
+          
+                <h2>Nos contacts</h2>
+               
+                <p>+237 690909999</p>
+                <p>+237 670707777</p>
+                <p><a href="mailto:hello@julia-food.cm"><i class="fas fa-mail-bulk"></i> hello@julia-food.cm</a></p>
+              
+            </div>
+            <div class="footer-centre">
+               
+                    <h2>Nos horaires d'ouverture</h2>
+               
+                <p><i class="fas fa-times-circle"></i> Lundi: ferme</p>
+                <p><i class="fas fa-check-circle"></i> Mardi-Vendredi: 11h30-21h30 </p>
+                <p><i class="fas fa-check-circle"></i> Samedi-Dimanche: 13h-23h</p>
+                
+            </div>
+            <div class="footer-droit">
+                
+                    <h2>Nos reseaux sociaux</h2>
+                
+                <a href="https://facebook.cm/juliafood"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="https://twitter.cm/juliafood"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="https://instagram.cm/juliafood"><i class="fab fa-instagram"></i> Instagram</a>
+            </div>
+        </div>
+        <hr>
+        <div class="copyright">
+            <a href="#banniere"><i class="fas fa-chevron-circle-up"></i></a>
+            <a href="mailto:fonkouamagloire01@gmail.com"><i class="fas fa-copyright"></i> Copyright by FONKOUA Magloire2021</a>
+        </div>
+       </footer>
+         
+    </body>
+</html>

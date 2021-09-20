@@ -1,0 +1,30 @@
+{% extends 'base.html.twig'%}
+
+{% block title %}Gallerie{% endblock %}
+        
+             {% block banniere %}
+                <div class="banniere" id="banniere" style="background-image: url({{asset('JuliaFood/Pictures/bg1.jpg')}});">
+                    <h1>Bienvenu chez Julia Food !</h1>
+                    <p>A propos de nous...</p>
+                </div>
+            {% endblock %}
+       
+    {% block body %}
+
+        <section>
+            <div class="menus">
+                {% for GallerieResto in GallerieRestos %}
+                    <div class="menu">
+                        <div class="menu-img">
+                            <img src="{{asset('JuliaFood/Pictures/' ~ GallerieResto.image)}}" alt="">
+                        </div>
+                        <div class="menu-titre">
+                            <h3>{{ GallerieResto.nom }}</h3>
+                            <p>{{ GallerieResto.description }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+
+    {% endblock %}

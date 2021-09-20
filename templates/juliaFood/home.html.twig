@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+   
+            {% block banniere %}
+                <div class="banniere" id="banniere"
+                     style="background-image: url({{ asset('JuliaFood/Pictures/bg.jpg') }});">
+                    <h1>Bienvenu chez Julia Food !</h1>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem, mollitia.</p>
+                    <a href="{{ path('nosmenus') }}" class="btn">Visiter nos menus</a>
+                </div>
+            {% endblock %}
+  
+    {% block body %}
+
+        <section>
+            <h2>Nos menu phares</h2>
+            <div class="line-color"></div>
+
+            <div class="menu-phare">
+                {% for menu_phare in menuPhares %}
+                    <div class="menu">
+                        <div class="menu-img">
+                            <img src="{{ asset('JuliaFood/Pictures/' ~ menu_phare.images) }}" alt="">
+                        </div>
+                        <div class="menu-titre">
+                            <h3>{{ menu_phare.mon }}</h3>
+                            <p>{{ menu_phare.description }}</p>
+                            <h5>${{ menu_phare.prix }}</h5>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </section>
+
+        <section>
+            <h2>Avis de quelques clients</h2>
+            <div class="line-color"></div>
+            <div class="avis-client">
+                {% for client in clients %}
+                <div class="avis">
+                    <div class="avis-img">
+                        <img src="{{ asset('JuliaFood/Pictures/' ~ client.images) }}" alt="">
+                        <div class="avis-id">
+                            <h3>{{ client.nom }}</h3>
+                            <i class="fab fa-facebook"></i>
+                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                    </div>
+                    <div class="avis-titre">
+                        <p>{{ client.message}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endblock %}
